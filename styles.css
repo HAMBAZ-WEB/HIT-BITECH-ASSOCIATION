@@ -17,28 +17,9 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='2' fill='%2327ae60' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%2327ae60' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%2327ae60' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='40' r='2' fill='%2327ae60' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='80' r='2' fill='%2327ae60' fill-opacity='0.1'/%3E%3Cpath d='M60 60l20-20M60 60l20 20M60 60l-20 20M60 60l-20-20' stroke='%2327ae60' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
 }
 
-/* ===== Typography ===== */
-h1, h2, h3 {
-  font-weight: 600;
-  color: var(--primary);
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-p {
-  margin-bottom: 1rem;
+/* ===== Text Visibility Fixes ===== */
+.card-body {
+  color: #333 !important;
 }
 
 /* ===== Header Styles ===== */
@@ -59,6 +40,16 @@ header::after {
   right: 0;
   height: 10px;
   background: var(--secondary);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .tagline {
@@ -113,6 +104,7 @@ section {
 .section-title {
   text-align: center;
   margin-bottom: 40px;
+  color: var(--primary);
   position: relative;
 }
 
@@ -298,7 +290,6 @@ footer {
 }
 
 .footer-section h3 {
-  color: white;
   margin-bottom: 20px;
   position: relative;
   display: inline-block;
@@ -344,6 +335,21 @@ footer {
   transform: translateY(0);
 }
 
+/* ===== Membership Section Fixes ===== */
+#join .card-body {
+  color: #333 !important;
+}
+
+#join .card {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* ===== Industrial Biotech Card Fix ===== */
+[data-card-type="industrial"] .card-body,
+[data-card-type="industrial-partner"] .card-body {
+  color: #333 !important;
+}
+
 /* ===== Responsive Styles ===== */
 @media (max-width: 768px) {
   .timeline::after {
@@ -367,14 +373,6 @@ footer {
   
   h1 {
     font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  h3 {
-    font-size: 1.3rem;
   }
   
   .tagline {
