@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIT Biotech Association - Advancing Life Sciences</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #27ae60;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a252f);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: var(--secondary);
+        }
+        
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background: #219150;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 60px 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            flex: 1 1 300px;
+            max-width: 350px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .testimonial {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: rgba(39, 174, 96, 0.1);
+            font-family: serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left, .right {
+                left: 0;
+                text-align: left;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HIT Biotech Association</h1>
+        <p class="tagline">Bridging Science and Innovation for a Sustainable Future</p>
+        <a href="#about" class="btn">Explore Our Mission</a>
+        <a href="#join" class="btn btn-outline">Join Our Community</a>
+    </header>
+    
+    <section id="about">
+        <h2 class="section-title">Who We Are</h2>
+        <div class="card-container">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3>Our Vision</h3>
+                </div>
+                <div class="card-body">
+                    <p>To become Zimbabwe's premier student-led biotechnology hub that fosters scientific excellence, innovation, and sustainable solutions to local and global challenges.</p>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3>Our Mission</h3>
+                </div>
+                <div class="card-body">
+                    <p>To empower the next generation of biotechnologists through hands-on research, industry collaboration, and community engagement that addresses real-world problems.</p>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h3>Our Values</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>Scientific Integrity</li>
+                        <li>Innovation</li>
+                        <li>Sustainability</li>
+                        <li>Collaboration</li>
+                        <li>Community Impact</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background-color: #f1f8f3;">
+        <h2 class="section-title">Why Biotechnology Matters</h2>
+        <div class="card-container">
+            <div class="card fade-in">
+                <div class="card-header" style="background-color: #3498db;">
+                    <h3>Medical Biotechnology</h3>
+                </div>
+                <div class="card-body">
+                    <p>From developing vaccines to pioneering gene therapies, medical biotech is revolutionizing healthcare. Our members work on projects like:</p>
+                    <ul class="feature-list">
+                        <li>Low-cost diagnostic tools</li>
+                        <li>Traditional medicine validation</li>
+                        <li>Antimicrobial research</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header" style="background-color: #e67e22;">
+                    <h3>Agricultural Biotech</h3>
+                </div>
+                <div class="card-body">
+                    <p>Addressing food security through science. Current initiatives include:</p>
+                    <ul class="feature-list">
+                        <li>Drought-resistant crop research</li>
+                        <li>Soil microbiome analysis</li>
+                        <li>Biofertilizer development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header" style="background-color: #9b59b6;">
+                    <h3>Environmental Biotech</h3>
+                </div>
+                <div class="card-body">
+                    <p>Developing sustainable solutions for environmental challenges:</p>
+                    <ul class="feature-list">
+                        <li>Bioremediation techniques</li>
+                        <li>Waste-to-energy projects</li>
+                        <li>Water purification systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="programs">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="timeline">
+            <div class="timeline-item left fade-in">
+                <div class="timeline-content">
+                    <h3>Biotech Bootcamp</h3>
+                    <p>Quarterly intensive training covering essential lab techniques, bioinformatics, and research methodology for beginners.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item right fade-in">
+                <div class="timeline-content">
+                    <h3>Industry Immersion</h3>
+                    <p>Monthly visits to biotech companies, research institutes, and production facilities to connect classroom learning with real-world applications.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item left fade-in">
+                <div class="timeline-content">
+                    <h3>Research Fellowship</h3>
+                    <p>Year-long mentored research projects addressing local challenges with potential for commercialization.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item right fade-in">
+                <div class="timeline-content">
+                    <h3>BioInnovate Challenge</h3>
+                    <p>Annual competition where teams develop biotech solutions for problems identified by local communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section style="background-color: #f5f5f5;">
+        <h2 class="section-title">Recent Achievements</h2>
+        <div class="card-container">
+            <div class="card fade-in">
+                <div class="card-body">
+                    <h3 style="color: var(--primary);">2023 BioInnovate Winners</h3>
+                    <p>Our team developed a low-cost microbial water purification system using locally available materials, winning the national student innovation award.</p>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-body">
+                    <h3 style="color: var(--primary);">Published Research</h3>
+                    <p>Two of our student papers on indigenous medicinal plant compounds were published in the African Journal of Biotechnology.</p>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-body">
+                    <h3 style="color: var(--primary);">Industry Partnership</h3>
+                    <p>Signed an MOU with a leading pharmaceutical company to establish a student internship pipeline and equipment sharing program.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials">
+        <h2 class="section-title">Success Stories</h2>
+        
+        <div class="testimonial fade-in">
+            <div class="testimonial-content">
+                <p>"The Biotech Association transformed my academic journey. Through the research fellowship, I gained hands-on experience that led to an internship at the National Biotechnology Authority. The skills I learned in molecular techniques and project management gave me a competitive edge in the job market."</p>
+                <p class="testimonial-author">- Tariro M., BSc Biotechnology (Honors)</p>
+            </div>
+        </div>
+        
+        <div class="testimonial fade-in">
+            <div class="testimonial-content">
+                <p>"Our BioInnovate project on developing biofertilizers from agricultural waste turned into a startup that now supplies smallholder farmers. The mentorship and networking opportunities through the association were invaluable in turning our idea into reality."</p>
+                <p class="testimonial-author">- Team GreenGrowth, 2022 Cohort</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="join" style="background-color: var(--primary); color: white; text-align: center;">
+        <h2 class="section-title" style="color: white;">Ready to Join?</h2>
+        <p style="max-width: 800px; margin: 0 auto 30px;">Whether you're a biotechnology student, interested researcher, or industry partner, we have opportunities for you to engage with our vibrant community.</p>
+        
+        <div class="card-container">
+            <div class="card fade-in">
+                <div class="card-header" style="background-color: var(--secondary);">
+                    <h3>Student Membership</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>Access to all workshops and training</li>
+                        <li>Eligibility for research projects</li>
+                        <li>Industry networking opportunities</li>
+                        <li>Competition participation</li>
+                        <li>Mentorship program</li>
+                    </ul>
+                    <a href="#" class="btn" style="display: block; margin-top: 20px;">Apply Now</a>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <div class="card-header" style="background-color: var(--accent);">
+                    <h3>Industry Partners</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li>Access to emerging talent</li>
+                        <li>Collaborative research opportunities</li>
+                        <li>Equipment sharing programs</li>
+                        <li>Customized training sessions</li>
+                        <li>Brand visibility</li>
+                    </ul>
+                    <a href="#" class="btn" style="display: block; margin-top: 20px; background: var(--accent);">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Department of Biotechnology<br>
+                Harare Institute of Technology<br>
+                biotech@hit.ac.zw<br>
+                +263 242 123456</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#about" style="color: white;">About Us</a><br>
+                <a href="#programs" style="color: white;">Programs</a><br>
+                <a href="#join" style="color: white;">Membership</a><br>
+                <a href="#" style="color: white;">Resources</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <p style="margin-top: 20px;">Subscribe to our newsletter for updates</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 HIT Biotech Association. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple intersection observer for fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
